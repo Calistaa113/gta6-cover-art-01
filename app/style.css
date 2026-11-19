@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Anton";
+  src: url("./fonts/anton-latin-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body { margin: 0; min-height: 100%; background: #12081c; color: #f4eef7; font: 15px/1.45 system-ui, sans-serif; }
+body { box-sizing: border-box; }
+
+.topbar { padding: 18px 28px 12px; border-bottom: 1px solid #3a2144; background: linear-gradient(90deg, #1c0b2e, #2b0f3a 55%, #160a24); }
+.brand { display: flex; gap: 14px; align-items: center; max-width: 1280px; margin: 0 auto; }
+.brand-mark { display: grid; place-items: center; width: 52px; height: 52px; flex: none; border-radius: 10px;
+  background: linear-gradient(135deg, #ff5e3a, #ff2e88 55%, #7b2ff7); color: #fff;
+  font-family: "Anton", system-ui, sans-serif; font-size: 24px; letter-spacing: 1px;
+  box-shadow: 0 0 18px rgba(255, 46, 136, 0.55); }
+.brand h1 { margin: 0; font-family: "Anton", system-ui, sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 2px; text-transform: uppercase; }
+.brand p { margin: 2px 0 0; color: #c9b3d4; font-size: 13px; }
+
+.layout { display: flex; gap: 28px; align-items: flex-start; max-width: 1280px; margin: 0 auto; padding: 24px 28px 40px; }
+.stage { flex: 1 1 auto; min-width: 0; position: sticky; top: 16px; }
+#preview { display: block; width: min(100%, 72vh); height: auto; margin: 0 auto; background: #1d0b2b;
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55), 0 0 0 1px #3a2144; cursor: crosshair; touch-action: none; }
+.hint { color: #a98fb8; font-size: 13px; text-align: center; margin: 10px 0 0; }
+
+.controls { flex: 0 0 340px; display: flex; flex-direction: column; gap: 16px; }
+.card { border: 1px solid #3a2144; border-radius: 12px; padding: 14px 16px 16px; margin: 0; background: #1b0d28; }
+.card legend { padding: 0 8px; font-weight: 700; color: #ffb3d9; }
+.card h3 { margin: 0 0 8px; font-size: 15px; }
+.card h3 .tag { font-size: 11px; font-weight: 600; color: #7ee7ff; border: 1px solid #2b6f86; border-radius: 20px; padding: 1px 8px; margin-left: 6px; }
+.panel-card { border-top: 1px dashed #3a2144; padding: 12px 0; }
+.panel-card:first-of-type { border-top: 0; padding-top: 2px; }
+.panel-card.selected { outline: 2px solid #ff2e88; outline-offset: 4px; border-radius: 8px; }
+
+label { display: flex; flex-direction: column; gap: 5px; font-weight: 600; font-size: 13px; margin: 8px 0; }
+label.check { flex-direction: row; align-items: center; gap: 8px; font-weight: 600; }
+input[type=text], select { font: inherit; color: #f4eef7; padding: 8px 10px; border: 1px solid #5a3a68; border-radius: 7px; background: #241233; }
+input[type=range] { width: 100%; accent-color: #ff2e88; }
+input[type=file] { font: inherit; font-weight: 400; }
+input[type=checkbox] { accent-color: #ff2e88; width: 16px; height: 16px; }
+.sizes { display: flex; flex-direction: column; gap: 6px; }
+.sizes label { flex-direction: row; align-items: center; gap: 8px; margin: 0; font-weight: 600; }
+.samples { display: flex; gap: 6px; margin: 6px 0 2px; }
+button { font: inherit; font-weight: 700; padding: 10px 12px; border: 0; border-radius: 8px; cursor: pointer;
+  background: linear-gradient(135deg, #ff5e3a, #ff2e88); color: #fff; }
+button:hover { filter: brightness(1.12); }
+button.secondary { background: #2c1840; color: #ffd7ec; border: 1px solid #5a3a68; width: 100%; margin-top: 6px; }
+button.sample { background: #2c1840; color: #cfeeff; border: 1px solid #2b6f86; padding: 6px 10px; font-size: 13px; }
+button.sample.active { background: #14424f; border-color: #7ee7ff; }
+button.fill-all { background: transparent; color: #ffb3d9; border: 1px dashed #8a4a6e; padding: 6px 10px; font-size: 13px; margin-top: 6px; }
+.exports { display: flex; flex-direction: column; gap: 8px; }
+.exports button { width: 100%; }
+#status { color: #9be8a8; min-height: 1.2em; margin: 10px 0 0; font-size: 13px; }
+
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .stage { position: static; }
+  .controls { flex-basis: auto; width: 100%; }
+}
+
+/* Screenshot mode: the cover alone, edge to edge. */
+body.shot-cover .topbar, body.shot-cover .controls, body.shot-cover .hint { display: none; }
+body.shot-cover .layout { padding: 0; max-width: none; }
+body.shot-cover .stage { position: static; }
+body.shot-cover #preview { width: 100vw; height: 100vh; object-fit: contain; box-shadow: none; background: #12081c; }
